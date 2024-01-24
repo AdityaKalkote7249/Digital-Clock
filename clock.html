@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="clock.css">
+</head>
+<body>
+    <div class="container">
+        <div class="clock">
+            <div style="--clr:white;" id="hourHand" class="hand"><i></i></div>
+            <div style="--clr:#980000;" id="minuteHand" class="hand"><i></i></div>
+            <div style="--clr:#00a6ff;" id="secondHand" class="hand"><i></i></div>
+            <span style="--i:1;"><b>1</b></span>
+            <span style="--i:2;"><b>2</b></span>
+<span style="--i:3;"><b>3</b></span> 
+<span style="--i:4;"><b>4</b></span>
+<span style="--i:5;"><b>5</b></span>
+<span style="--i:6;"><b>6</b></span>
+<span style="--i:7;"><b>7</b></span>
+<span style="--i:8;"><b>8</b></span>
+<span style="--i:9;"><b>9</b></span>
+<span style="--i:10;"><b>10</b></span>
+<span style="--i:11;"><b>11</b></span>
+<span style="--i:12;"><b>12</b></span>
+            <!-- ... Rest of the clock design ... -->
+        </div>
+    </div>
+    <script>
+        let hourHand = document.getElementById('hourHand');
+        let minuteHand = document.getElementById('minuteHand');
+        let secondHand = document.getElementById('secondHand');
+
+        function displayTime() {
+            let currentDate = new Date();
+            let currentHr = currentDate.getHours();
+            let currentMin = currentDate.getMinutes();
+            let currentSec = currentDate.getSeconds();
+
+            let hRotation = 30 * currentHr + currentMin / 2;
+            let mRotation = 6 * currentMin;
+            let sRotation = 6 * currentSec;
+
+            hourHand.style.transform = `rotate(${hRotation}deg)`;
+            minuteHand.style.transform = `rotate(${mRotation}deg)`;
+            secondHand.style.transform = `rotate(${sRotation}deg)`;
+        }
+
+        setInterval(displayTime, 1000);
+    </script>
+</body>
+</html>
